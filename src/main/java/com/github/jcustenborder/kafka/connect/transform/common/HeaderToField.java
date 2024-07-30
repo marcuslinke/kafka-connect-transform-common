@@ -42,9 +42,11 @@ public class HeaderToField<R extends ConnectRecord<R>> extends BaseKeyValueTrans
 
   HeaderToFieldConfig config;
 
-  protected HeaderToField(boolean isKey) {
-    super(isKey);
+  protected HeaderToField() {
+    super();
   }
+
+  protected boolean isKey = true;
 
   @Override
   public ConfigDef config() {
@@ -119,13 +121,17 @@ public class HeaderToField<R extends ConnectRecord<R>> extends BaseKeyValueTrans
 
   public static class Key<R extends ConnectRecord<R>> extends HeaderToField<R> {
     public Key() {
-      super(true);
+      super();
     }
+
+    protected boolean isKey = true;
   }
 
   public static class Value<R extends ConnectRecord<R>> extends HeaderToField<R> {
     public Value() {
-      super(false);
+      super();
     }
+
+    protected boolean isKey = false;
   }
 }

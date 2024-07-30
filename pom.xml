@@ -78,8 +78,13 @@
         </dependency>
         <dependency>
             <groupId>com.github.jcustenborder.kafka.connect</groupId>
+            <artifactId>connect-utils</artifactId>
+            <version>0.7-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jcustenborder.kafka.connect</groupId>
             <artifactId>connect-utils-testing-data</artifactId>
-            <version>${connect-utils.version}</version>
+            <version>0.7-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>

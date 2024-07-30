@@ -43,20 +43,24 @@ public abstract class TimestampNowField<R extends ConnectRecord<R>> extends Base
   private TimestampNowFieldConfig config;
   Time time = Time.SYSTEM;
 
-  protected TimestampNowField(boolean isKey) {
-    super(isKey);
+  protected TimestampNowField() {
+    super();
   }
 
   public static class Key<R extends ConnectRecord<R>> extends TimestampNowField<R> {
     public Key() {
-      super(true);
+      super();
     }
+
+    protected boolean isKey = true;
   }
 
   public static class Value<R extends ConnectRecord<R>> extends TimestampNowField<R> {
     public Value() {
-      super(false);
+      super();
     }
+
+    protected boolean isKey = false;
   }
 
   @Override

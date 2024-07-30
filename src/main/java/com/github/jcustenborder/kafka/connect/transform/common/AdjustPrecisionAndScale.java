@@ -46,9 +46,11 @@ import java.util.LinkedHashMap;
 public class AdjustPrecisionAndScale<R extends ConnectRecord<R>> extends BaseKeyValueTransformation<R> {
   private static final Logger log = LoggerFactory.getLogger(AdjustPrecisionAndScale.class);
 
-  public AdjustPrecisionAndScale(boolean isKey) {
-    super(isKey);
+  public AdjustPrecisionAndScale() {
+    super();
   }
+
+  protected boolean isKey = true;
 
   @Override
   public ConfigDef config() {
@@ -210,13 +212,15 @@ public class AdjustPrecisionAndScale<R extends ConnectRecord<R>> extends BaseKey
 
   public static class Key<R extends ConnectRecord<R>> extends AdjustPrecisionAndScale<R> {
     public Key() {
-      super(true);
+      super();
     }
+    protected boolean isKey = true;
   }
 
   public static class Value<R extends ConnectRecord<R>> extends AdjustPrecisionAndScale<R> {
     public Value() {
-      super(false);
+      super();
     }
+    protected boolean isKey = false;
   }
 }

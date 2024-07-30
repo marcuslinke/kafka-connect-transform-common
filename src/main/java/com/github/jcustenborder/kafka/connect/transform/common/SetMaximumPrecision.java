@@ -45,8 +45,8 @@ import java.util.stream.Collectors;
 public class SetMaximumPrecision<R extends ConnectRecord<R>> extends BaseKeyValueTransformation<R> {
   private static final Logger log = LoggerFactory.getLogger(SetMaximumPrecision.class);
 
-  public SetMaximumPrecision(boolean isKey) {
-    super(isKey);
+  public SetMaximumPrecision() {
+    super();
   }
 
   @Override
@@ -161,13 +161,17 @@ public class SetMaximumPrecision<R extends ConnectRecord<R>> extends BaseKeyValu
 
   public static class Key<R extends ConnectRecord<R>> extends SetMaximumPrecision<R> {
     public Key() {
-      super(true);
+      super();
     }
+
+    protected boolean isKey = true;
   }
 
   public static class Value<R extends ConnectRecord<R>> extends SetMaximumPrecision<R> {
     public Value() {
-      super(false);
+      super();
     }
+
+    protected boolean isKey = false;
   }
 }
