@@ -42,7 +42,7 @@ public class HeaderToField<R extends ConnectRecord<R>> extends BaseKeyValueTrans
 
   HeaderToFieldConfig config;
 
-  protected HeaderToField() {
+  public HeaderToField() {
     super();
   }
 
