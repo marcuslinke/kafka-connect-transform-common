@@ -16,7 +16,7 @@
 package com.github.jcustenborder.kafka.connect.transform.common;
 
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigUtils;
-import com.github.jcustenborder.kafka.connect.utils.config.ValidEnum;
+import com.github.jcustenborder.kafka.connect.utils.config.validators.Validators;
 import com.google.common.base.CaseFormat;
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
@@ -46,7 +46,7 @@ class ChangeTopicCaseConfig extends AbstractConfig {
 
   public static ConfigDef config() {
     return new ConfigDef()
-        .define(FROM_CONFIG, ConfigDef.Type.STRING, ConfigDef.NO_DEFAULT_VALUE, ValidEnum.of(CaseFormat.class), ConfigDef.Importance.HIGH, FROM_DOC)
-        .define(TO_CONFIG, ConfigDef.Type.STRING, ConfigDef.NO_DEFAULT_VALUE, ValidEnum.of(CaseFormat.class), ConfigDef.Importance.HIGH, TO_DOC);
+        .define(FROM_CONFIG, ConfigDef.Type.STRING, ConfigDef.NO_DEFAULT_VALUE, Validators.validEnum(CaseFormat.class), ConfigDef.Importance.HIGH, FROM_DOC)
+        .define(TO_CONFIG, ConfigDef.Type.STRING, ConfigDef.NO_DEFAULT_VALUE, Validators.validEnum(CaseFormat.class), ConfigDef.Importance.HIGH, TO_DOC);
   }
 }
